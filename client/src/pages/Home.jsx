@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
 import { Link } from "react-router-dom";
-import "../../css/navbar.css"
+import "../../css/Navbar.css";
 
 function Home() {
   const navigate = useNavigate();
