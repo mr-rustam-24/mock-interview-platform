@@ -1,0 +1,311 @@
+
+* {
+  box-sizing: border-box;
+}
+
+.call-page {
+  min-height: 100vh;
+  background: #0b1020;
+  color: #f4f6ff;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+}
+
+.call-header {
+  min-height: 82px;
+  padding: 18px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid #242b40;
+  background: #101629;
+}
+
+.brand,
+.room-info,
+.video-label,
+.call-toolbar,
+.toolbar-actions {
+  display: flex;
+  align-items: center;
+}
+
+.brand {
+  gap: 12px;
+}
+
+.brand-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #7c5cff, #4a8dff);
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.brand h1,
+.brand p,
+.video-label p,
+.toolbar-note p {
+  margin: 0;
+}
+
+.brand h1 {
+  font-size: 17px;
+}
+
+.brand p,
+.video-label p,
+.toolbar-note p {
+  margin-top: 4px;
+  color: #9aa5c1;
+  font-size: 12px;
+}
+
+.room-info {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 9px;
+  color: #b8c3dc;
+  font-size: 12px;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #43d9a3;
+  box-shadow: 0 0 12px #43d9a355;
+}
+
+.room-id {
+  padding: 7px 10px;
+  border: 1px solid #303951;
+  border-radius: 8px;
+}
+
+.call-content {
+  width: min(1180px, 92%);
+  margin: 0 auto;
+  padding: 42px 0 24px;
+}
+
+.call-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.eyebrow {
+  color: #9d8bff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.call-heading h2 {
+  margin: 8px 0;
+  font-size: clamp(24px, 3vw, 34px);
+  letter-spacing: -1px;
+}
+
+.call-heading p:not(.eyebrow) {
+  color: #9aa5c1;
+  font-size: 14px;
+}
+
+.role-badge {
+  padding: 9px 15px;
+  border: 1px solid #51457f;
+  border-radius: 999px;
+  color: #c9bfff;
+  background: #201b3b;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.video-card {
+  position: relative;
+  min-width: 0;
+  height: clamp(250px, 34vw, 410px);
+  overflow: hidden;
+  border: 1px solid #2b344b;
+  border-radius: 20px;
+  background: radial-gradient(circle at center, #202a43, #11182a 70%);
+}
+
+.video-card video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.local-card video {
+  transform: scaleX(-1);
+}
+
+.video-label {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  gap: 10px;
+  padding: 10px 13px;
+  border: 1px solid #ffffff20;
+  border-radius: 12px;
+  background: #080d1bd9;
+  backdrop-filter: blur(10px);
+}
+
+.video-label strong {
+  font-size: 13px;
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
+  background: #6251b5;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.self-avatar {
+  background: #266e82;
+}
+
+.video-status,
+.you-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 7px 10px;
+  border: 1px solid #ffffff25;
+  border-radius: 8px;
+  background: #080d1bd9;
+  color: #dce4fa;
+  font-size: 11px;
+}
+
+.call-toolbar {
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 22px;
+  padding: 20px;
+  border: 1px solid #2b344b;
+  border-radius: 18px;
+  background: #11182a;
+}
+
+.toolbar-note strong {
+  font-size: 14px;
+}
+
+.toolbar-actions {
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.control-button,
+.end-call-button {
+  min-height: 45px;
+  padding: 0 15px;
+  border: 1px solid #37425c;
+  border-radius: 12px;
+  color: #f4f6ff;
+  background: #202a40;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.control-button span {
+  margin-right: 7px;
+}
+
+.control-button:hover {
+  background: #303c58;
+}
+
+.control-off {
+  border-color: #b84b60;
+  background: #49212f;
+}
+
+.end-call-button {
+  border-color: #f16b79;
+  background: #e34e63;
+}
+
+.end-call-button:hover {
+  background: #c93e53;
+}
+
+.end-call-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.call-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 22px 2px;
+  color: #8490ad;
+  font-size: 12px;
+}
+
+@media (max-width: 720px) {
+  .call-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .room-info {
+    justify-content: flex-start;
+  }
+
+  .call-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .video-card {
+    height: 280px;
+  }
+
+  .call-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .toolbar-actions {
+    width: 100%;
+  }
+
+  .control-button,
+  .end-call-button {
+    flex: 1;
+  }
+
+  .call-footer {
+    flex-direction: column;
+  }
+}
