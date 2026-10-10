@@ -7,6 +7,8 @@ import {
   Navigate,
 } from "react-router-dom";
 
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
 import Home from "./pages/Home";
 import StudentDashboard from "./pages/StudentDashboard";
 import InterviewerDashboard from "./pages/InterviewerDashboard";
@@ -31,6 +33,16 @@ function App() {
         <Route
           path="/interview/:interviewId"
           element={<VideoCall />}
+        />
+
+        <Route
+          path="/signup"
+          element={<Signup />}
+        />
+
+        <Route
+          path="/login"
+          element={<Login />}
         />
 
         <Route path="*" element={<Navigate to="/" replace />} />

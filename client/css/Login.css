@@ -1,0 +1,214 @@
+
+/* ===== Login Page Background ===== */
+.login-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 24px;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #0f172a, #1e3a8a, #312e81);
+}
+
+/* ===== Main Container ===== */
+.login-page .container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* ===== Login Card ===== */
+.login-page .card {
+  width: 100% !important;
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 44px 48px !important;
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 22px;
+  box-shadow: 0 24px 65px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* ===== Heading ===== */
+.login-page h2 {
+  color: #172554;
+  font-size: 34px;
+  line-height: 1.3;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  margin-bottom: 12px !important;
+}
+
+.login-page .text-muted {
+  color: #64748b !important;
+  font-size: 16px;
+  margin-bottom: 32px;
+}
+
+/* ===== Form Groups ===== */
+.login-page form .mb-3 {
+  margin-bottom: 24px !important;
+}
+
+/* ===== Labels ===== */
+.login-page .form-label {
+  display: block;
+  color: #334155;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* ===== Input Fields ===== */
+.login-page .form-control {
+  width: 100%;
+  height: 54px;
+  padding: 12px 16px;
+  box-sizing: border-box;
+  border: 1px solid #cbd5e1;
+  border-radius: 11px;
+  background: #f8fafc;
+  color: #0f172a;
+  font-size: 16px;
+  box-shadow: none;
+  transition: border-color 0.2s ease,
+              box-shadow 0.2s ease,
+              background-color 0.2s ease;
+}
+
+.login-page .form-control::placeholder {
+  color: #94a3b8;
+  font-size: 15px;
+}
+
+.login-page .form-control:hover {
+  border-color: #94a3b8;
+}
+
+.login-page .form-control:focus {
+  background: #ffffff;
+  border-color: #2563eb;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+/* ===== Forgot Password ===== */
+.login-page .mb-3 > a {
+  display: block;
+  width: fit-content;
+  margin-top: 12px;
+  margin-left: auto;
+  color: #2563eb;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.login-page .mb-3 > a:hover {
+  color: #4338ca;
+  text-decoration: underline;
+}
+
+/* ===== Login Button ===== */
+.login-page .btn-primary {
+  width: 100%;
+  min-height: 54px;
+  margin-top: 6px;
+  border: none;
+  border-radius: 11px;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.22);
+  transition: transform 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+.login-page .btn-primary:hover {
+  background: linear-gradient(135deg, #1d4ed8, #4338ca);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(37, 99, 235, 0.3);
+}
+
+.login-page .btn-primary:active {
+  transform: translateY(0);
+}
+
+/* ===== Signup Link Section ===== */
+.login-page p.text-center.mt-3 {
+  margin-top: 28px !important;
+  margin-bottom: 0;
+  color: #64748b;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.login-page p.text-center.mt-3 a {
+  color: #2563eb;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.login-page p.text-center.mt-3 a:hover {
+  color: #4338ca;
+  text-decoration: underline;
+}
+
+/* ===== Keyboard Accessibility ===== */
+.login-page a:focus-visible,
+.login-page button:focus-visible {
+  outline: 3px solid #60a5fa;
+  outline-offset: 3px;
+}
+
+/* ===== Tablet ===== */
+@media (max-width: 768px) {
+  .login-page {
+    padding: 32px 20px;
+  }
+
+  .login-page .card {
+    max-width: 520px;
+    padding: 36px 32px !important;
+  }
+
+  .login-page h2 {
+    font-size: 30px;
+  }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 480px) {
+  .login-page {
+    padding: 20px 14px;
+  }
+
+  .login-page .card {
+    padding: 28px 22px !important;
+    border-radius: 16px;
+  }
+
+  .login-page h2 {
+    font-size: 26px;
+  }
+
+  .login-page .text-muted {
+    font-size: 14px;
+    margin-bottom: 26px;
+  }
+
+  .login-page .form-control {
+    height: 50px;
+    font-size: 15px;
+  }
+
+  .login-page .btn-primary {
+    min-height: 50px;
+  }
+}

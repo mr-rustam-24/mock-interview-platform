@@ -1,7 +1,8 @@
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
+import { Link } from "react-router-dom";
+import "../../css/navbar.css"
 
 function Home() {
   const navigate = useNavigate();
@@ -14,6 +15,34 @@ function Home() {
           <span>MockMate</span>
         </div>
         <span className="nav-label">Mock Interview Platform</span>
+
+            <ul className="navbar-nav ms-auto align-items-center auth-nav-links">
+
+              <li className="nav-item">
+
+                <Link
+                  className="nav-link"
+                  to="/login"
+                >
+                  Login
+                </Link>
+
+              </li>
+
+
+              <li className="nav-item">
+
+                <Link
+                  className="nav-link dc-signup-link"
+                  to="/signup"
+                >
+                  Signup
+                </Link>
+
+              </li>
+
+            </ul>
+
       </nav>
 
       <section className="hero-section">

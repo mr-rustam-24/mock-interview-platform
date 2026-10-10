@@ -6,9 +6,9 @@ const http = require("http");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const { Server } = require("socket.io");
+const authRoute = require("./routes/auth.routes")
 
 const app = express();
-
 
 const allowedOrigins = [
   "http://localhost:5173",
@@ -20,12 +20,14 @@ const allowedOrigins = [
 app.use(
   cors({
     origin: allowedOrigins,
+    methods: ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
 app.use(express.json());
 
-
+app.use("/api/auth",authRoute);
 // 2. Create HTTP server
 const server = http.createServer(app);
 
