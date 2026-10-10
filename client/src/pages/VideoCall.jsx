@@ -3,8 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import { io } from "socket.io-client";
 import "./VideoCall.css";
 
-const SERVER_URL = "http://192.168.0.190:9000";
-const socket = io("http://192.168.0.190:9000");
+const SERVER_URL = "https://mock-interview-platform-api.onrender.com";
+const socket = io(SERVER_URL);
 
 export default function VideoCall() {
   const localVideoRef = useRef(null);

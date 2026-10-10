@@ -2,9 +2,11 @@
 import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const API_URL = "http://192.168.0.190:9000/api/interviews/pending";
-const SCHEDULED_API_URL = "http://192.168.0.190:9000/api/interviews";
-const BASE_URL = "http://192.168.0.190:9000/api/interviews";
+
+const API_URL = "https://mock-interview-platform-api.onrender.com/api/interviews/pending";
+const SCHEDULED_API_URL = "https://mock-interview-platform-api.onrender.com/api/interviews";
+const BASE_URL = "https://mock-interview-platform-api.onrender.com/api/interviews";
+
 
 function InterviewerDashboard() {
   const [interviews, setInterviews] = useState([]);

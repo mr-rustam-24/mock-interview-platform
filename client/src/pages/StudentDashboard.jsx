@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const API_URL = "http://192.168.0.190:9000/api/interviews";
+const API_URL = "https://mock-interview-platform-api.onrender.com/api/interviews";
 
 function StudentDashboard() {
   const [form, setForm] = useState({
