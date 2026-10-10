@@ -13,6 +13,7 @@ const app = express();
 const allowedOrigins = [
   "http://localhost:5173",
   "http://192.168.0.190:5173",
+  "https://mock-interview-platform-blue-rho.vercel.app",
 ];
 
 // 1. Middleware
