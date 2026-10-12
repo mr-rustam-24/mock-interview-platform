@@ -3,6 +3,10 @@
   box-sizing: border-box;
 }
 
+
+.your-interview-room{
+    margin-left: 100px;
+}
 .call-page {
   min-height: 100vh;
   background: #0b1020;
@@ -101,7 +105,7 @@
 }
 
 .eyebrow {
-  color: #9d8bff;
+  color: #FF0000;
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 2px;
@@ -155,36 +159,48 @@
   transform: scaleX(-1);
 }
 
+
 .video-label {
   position: absolute;
-  left: 16px;
-  bottom: 16px;
-  gap: 10px;
-  padding: 10px 13px;
+  left: 12px;
+  bottom: 8px;
+  gap: 8px;
+  padding: 7px 9px;
   border: 1px solid #ffffff20;
-  border-radius: 12px;
+  border-radius: 10px;
   background: #080d1bd9;
   backdrop-filter: blur(10px);
 }
 
+
 .video-label strong {
-  font-size: 13px;
+  display: block;
+  font-size: 11px;
+}
+
+.video-label p {
+  margin: 3px 0 0;
+  color: #9aa5c1;
+  font-size: 10px;
+  line-height: 1.4;
 }
 
 .avatar {
   display: grid;
   place-items: center;
-  width: 35px;
-  height: 35px;
-  border-radius: 10px;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
   background: #6251b5;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
 }
 
 .self-avatar {
   background: #266e82;
 }
+
 
 .video-status,
 .you-badge {

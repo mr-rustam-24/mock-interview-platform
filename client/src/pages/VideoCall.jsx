@@ -1,7 +1,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { io } from "socket.io-client";
-import "./VideoCall.css";
+import "../../css/VideoCall.css";
 
 const SERVER_URL = "https://mock-interview-platform-api.onrender.com";
 const socket = io(SERVER_URL);
@@ -18,6 +18,8 @@ export default function VideoCall() {
   const [micOn, setMicOn] = useState(true);
   const [status, setStatus] = useState("Connecting...");
   const [callEnded, setCallEnded] = useState(false);
+  
+
 
   const params = new URLSearchParams(window.location.search);
   const pathParts = window.location.pathname.split("/").filter(Boolean);
@@ -129,6 +131,7 @@ export default function VideoCall() {
 
     peer.onconnectionstatechange = () => {
       if (!active) return;
+      
 
       const states = {
         connected: "Connected",
@@ -339,25 +342,19 @@ export default function VideoCall() {
           <div className="brand-icon">M</div>
           <div>
             <h1>Mock Interview</h1>
-            <p>Practice. Improve. Succeed.</p>
           </div>
         </div>
 
         <div className="room-info">
           <span className="live-dot" />
           <span>{status}</span>
-          <span className="room-id">Room: {roomId || "N/A"}</span>
         </div>
       </header>
 
       <section className="call-content">
         <div className="call-heading">
           <div>
-            <p className="eyebrow">LIVE INTERVIEW SESSION</p>
-            <h2>Your interview room</h2>
-            <p>
-              Communicate clearly and make the most of your practice session.
-            </p>
+            <p className="eyebrow">LIVE</p>
           </div>
 
           <span className="role-badge">
@@ -369,27 +366,14 @@ export default function VideoCall() {
           <div className="video-card local-card">
             <video ref={localVideoRef} autoPlay playsInline muted />
 
-            <div className="video-label">
-              <div className="avatar self-avatar">Y</div>
-              <div>
-                <strong>You</strong>
-                <p>{micOn ? "Microphone on" : "Microphone muted"}</p>
-              </div>
-            </div>
+            
 
-            <span className="you-badge">YOU</span>
+            <span className="you-badge">YOU {micOn ? "" : "🔇"}</span>
           </div>
 
           <div className="video-card remote-card">
             <video ref={remoteVideoRef} autoPlay playsInline />
-
-            <div className="video-label">
-              <div className="avatar">P</div>
-              <div>
-                <strong>Interview participant</strong>
-                <p>{status}</p>
-              </div>
-            </div>
+          
 
             <span className="video-status">{status}</span>
           </div>
@@ -398,7 +382,6 @@ export default function VideoCall() {
         <section className="call-toolbar">
           <div className="toolbar-note">
             <strong>Call controls</strong>
-            <p>Manage your camera, microphone, or end the session.</p>
           </div>
 
           <div className="toolbar-actions">
@@ -434,10 +417,7 @@ export default function VideoCall() {
         </section>
 
         <footer className="call-footer">
-          <span>Mock Interview Platform</span>
-          <span>
-            Role: {role} · Room: {roomId || "N/A"}
-          </span>
+
         </footer>
       </section>
     </main>

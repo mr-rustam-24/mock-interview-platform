@@ -1,8 +1,10 @@
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import "../../css/StudentDashboard.css";;
 
-const API_URL = "https://mock-interview-platform-api.onrender.com/api/interviews";
+const API_URL =
+  "https://mock-interview-platform-api.onrender.com/api/interviews";
 
 function StudentDashboard() {
   const [form, setForm] = useState({
@@ -43,6 +45,7 @@ function StudentDashboard() {
 
       setMessage("Interview request submitted successfully!");
       setEmailToSearch(form.studentEmail);
+
       setForm({
         studentName: "",
         studentEmail: "",
@@ -93,126 +96,206 @@ function StudentDashboard() {
   }
 
   return (
-    <main style={{ maxWidth: 800, margin: "40px auto", padding: 24 }}>
-      <h1>Student Dashboard</h1>
-      <p>Request a mock interview and check your scheduled interviews.</p>
+    <main className="container-fluid px-3 px-lg-5 py-4 dashboard-page">
+      <header className="dashboard-header rounded-4 p-4 p-lg-5 mb-4">
+        <h1 className="fw-bold">Student Dashboard</h1>
+        <p className="mb-0">
+          Request a mock interview and check your scheduled interviews.
+        </p>
+      </header>
 
-      <h2>Request an Interview</h2>
+      {message && (
+        <div className="alert alert-info" role="status">
+          {message}
+        </div>
+      )}
 
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="studentName">Full Name</label>
-        <input
-          id="studentName"
-          name="studentName"
-          value={form.studentName}
-          onChange={handleChange}
-          required
-          style={inputStyle}
-        />
+      <div className="row g-4">
+        {/* Request Interview */}
+        <div className="col-12 col-lg-5">
+          <section className="card dashboard-card h-100">
+            <div className="card-body p-4">
+              <h2 className="h4 fw-bold mb-2">
+                Request an Interview
+              </h2>
 
-        <label htmlFor="studentEmail">Email</label>
-        <input
-          id="studentEmail"
-          name="studentEmail"
-          type="email"
-          value={form.studentEmail}
-          onChange={handleChange}
-          required
-          style={inputStyle}
-        />
+              <p className="text-secondary mb-4">
+                Fill in your details to request an interview.
+              </p>
 
-        <label htmlFor="topic">Interview Topic</label>
-        <input
-          id="topic"
-          name="topic"
-          value={form.topic}
-          onChange={handleChange}
-          placeholder="Node.js, React, DSA..."
-          required
-          style={inputStyle}
-        />
+              <form onSubmit={handleSubmit}>
+                <div className="mb-3">
+                  <label htmlFor="studentName" className="form-label">
+                    Full Name
+                  </label>
+                  <input
+                    id="studentName"
+                    name="studentName"
+                    className="form-control"
+                    placeholder="Enter your full name"
+                    value={form.studentName}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
 
-        <label htmlFor="notes">Additional Notes</label>
-        <textarea
-          id="notes"
-          name="notes"
-          value={form.notes}
-          onChange={handleChange}
-          rows={4}
-          style={inputStyle}
-        />
+                <div className="mb-3">
+                  <label htmlFor="studentEmail" className="form-label">
+                    Email Address
+                  </label>
+                  <input
+                    id="studentEmail"
+                    name="studentEmail"
+                    type="email"
+                    className="form-control"
+                    placeholder="Enter your email address"
+                    value={form.studentEmail}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
 
-        <button type="submit" disabled={loading}>
-          {loading ? "Submitting..." : "Request Interview"}
-        </button>
-      </form>
+                <div className="mb-3">
+                  <label htmlFor="topic" className="form-label">
+                    Interview Topic
+                  </label>
+                  <input
+                    id="topic"
+                    name="topic"
+                    className="form-control"
+                    placeholder="Node.js, React, DSA..."
+                    value={form.topic}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
 
-      <hr style={{ margin: "32px 0" }} />
+                <div className="mb-4">
+                  <label htmlFor="notes" className="form-label">
+                    Additional Notes
+                  </label>
+                  <textarea
+                    id="notes"
+                    name="notes"
+                    className="form-control"
+                    rows={4}
+                    placeholder="What would you like to practice?"
+                    value={form.notes}
+                    onChange={handleChange}
+                  />
+                </div>
 
-      <h2>My Interviews</h2>
+                <button
+                  type="submit"
+                  className="btn btn-primary w-100"
+                  disabled={loading}
+                >
+                  {loading ? "Submitting..." : "Request Interview"}
+                </button>
+              </form>
+            </div>
+          </section>
+        </div>
 
-      <form onSubmit={loadInterviews}>
-        <label htmlFor="searchEmail">Your email address</label>
-        <input
-          id="searchEmail"
-          type="email"
-          value={emailToSearch}
-          onChange={(event) => setEmailToSearch(event.target.value)}
-          placeholder="Enter the email used for your request"
-          required
-          style={inputStyle}
-        />
+        {/* My Interviews */}
+        <div className="col-12 col-lg-7">
+          <section className="card dashboard-card">
+            <div className="card-body p-4">
+              <h2 className="h4 fw-bold mb-2">My Interviews</h2>
 
-        <button type="submit" disabled={loadingInterviews}>
-          {loadingInterviews ? "Loading..." : "Find My Interviews"}
-        </button>
-      </form>
+              <p className="text-secondary mb-4">
+                Search and check your interview status.
+              </p>
 
-      {message && <p role="status">{message}</p>}
+              <form onSubmit={loadInterviews} className="mb-4">
+                <label htmlFor="searchEmail" className="form-label">
+                  Your Email Address
+                </label>
 
-      {interviews.map((interview) => (
-        <article
-          key={interview._id}
-          style={{
-            border: "1px solid #ccc",
-            borderRadius: 8,
-            padding: 16,
-            marginTop: 16,
-          }}
-        >
-          <h3>{interview.topic}</h3>
-          <p>
-            <strong>Status:</strong> {interview.status}
-          </p>
+                <div className="d-flex flex-column flex-sm-row gap-2">
+                  <input
+                    id="searchEmail"
+                    type="email"
+                    className="form-control"
+                    placeholder="Enter your request email"
+                    value={emailToSearch}
+                    onChange={(event) =>
+                      setEmailToSearch(event.target.value)
+                    }
+                    required
+                  />
 
-          <p>
-            <strong>Scheduled time:</strong>{" "}
-            {interview.scheduledAt
-              ? new Date(interview.scheduledAt).toLocaleString()
-              : "Not scheduled yet"}
-          </p>
+                  <button
+                    type="submit"
+                    className="btn btn-primary flex-shrink-0"
+                    disabled={loadingInterviews}
+                  >
+                    {loadingInterviews ? "Loading..." : "Find Interviews"}
+                  </button>
+                </div>
+              </form>
 
-          {interview.status === "scheduled" && (
-            <Link
-              to={`/interview/${interview._id}?role=student&roomId=${encodeURIComponent(
-                interview.roomId
-              )}`}
-            >
-              Join Interview
-            </Link>
-          )}
-        </article>
-      ))}
+              {interviews.length === 0 ? (
+                <div className="empty-state text-center p-4">
+                  <h3 className="h6 fw-bold">
+                    Your interviews will appear here
+                  </h3>
+                  <p className="text-secondary small mb-0">
+                    Search using the email you used for your request.
+                  </p>
+                </div>
+              ) : (
+                interviews.map((interview) => (
+                  <article
+                    key={interview._id}
+                    className="interview-item p-3 mb-3"
+                  >
+                    <div className="d-flex flex-column flex-sm-row
+                                    justify-content-between gap-3">
+                      <div>
+                        <h3 className="h5 fw-bold">
+                          {interview.topic}
+                        </h3>
+
+                        <p className="mb-2">
+                          <strong>Status:</strong>{" "}
+                          <span className="badge text-bg-primary">
+                            {interview.status}
+                          </span>
+                        </p>
+
+                        <p className="small text-secondary mb-0">
+                          <strong>Scheduled time:</strong>{" "}
+                          {interview.scheduledAt
+                            ? new Date(
+                                interview.scheduledAt
+                              ).toLocaleString()
+                            : "Not scheduled yet"}
+                        </p>
+                      </div>
+
+                      {interview.status === "scheduled" && (
+                        <div>
+                          <Link
+                            className="btn btn-primary btn-sm"
+                            to={`/interview/${interview._id}?role=student&roomId=${encodeURIComponent(
+                              interview.roomId
+                            )}`}
+                          >
+                            Join Interview
+                          </Link>
+                        </div>
+                      )}
+                    </div>
+                  </article>
+                ))
+              )}
+            </div>
+          </section>
+        </div>
+      </div>
     </main>
   );
 }
-
-const inputStyle = {
-  display: "block",
-  width: "100%",
-  boxSizing: "border-box",
-  padding: 10,
-  margin: "6px 0 18px",
-};
 
 export default StudentDashboard;

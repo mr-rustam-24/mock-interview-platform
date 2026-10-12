@@ -1,0 +1,431 @@
+
+/* ===== Dashboard Base ===== */
+.interviewer-dashboard {
+  min-height: 100vh;
+  background: #f5f7fc;
+  color: #172033;
+  font-family: inherit;
+}
+
+.interviewer-dashboard .dashboard-container {
+  max-width: 1180px;
+  width: 100%;
+}
+
+.interviewer-dashboard .dashboard-eyebrow {
+  color: #4f46e5;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.interviewer-dashboard .dashboard-title {
+  color: #172033;
+  font-size: clamp(1.7rem, 3vw, 2.35rem);
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.interviewer-dashboard .dashboard-subtitle,
+.interviewer-dashboard .section-heading > div > p {
+  color: #748097;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.interviewer-dashboard .refresh-btn {
+  min-height: 46px;
+  padding: 11px 20px;
+  border: none;
+  border-radius: 12px;
+  background: #4f46e5;
+  font-weight: 600;
+  box-shadow: 0 5px 14px rgba(79, 70, 229, 0.16);
+}
+
+.interviewer-dashboard .refresh-btn:hover,
+.interviewer-dashboard .schedule-btn:hover {
+  background: #3730a3;
+}
+
+.interviewer-dashboard .dashboard-alert {
+  border-radius: 12px;
+}
+
+/* ===== Overview Cards ===== */
+.interviewer-dashboard .overview-card {
+  padding: 23px;
+  border: 1px solid #e8ebf3;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 5px 22px rgba(30, 41, 59, 0.035);
+}
+
+.interviewer-dashboard .overview-icon {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 18px;
+  place-items: center;
+  border-radius: 13px;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.interviewer-dashboard .overview-card > p {
+  margin-bottom: 6px;
+  color: #667085;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.interviewer-dashboard .overview-card h2 {
+  margin-bottom: 5px;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.interviewer-dashboard .overview-card > span {
+  color: #8992a5;
+  font-size: 0.8rem;
+}
+
+.interviewer-dashboard .pending-overview .overview-icon {
+  background: #eeedff;
+  color: #4f46e5;
+}
+
+.interviewer-dashboard .scheduled-overview .overview-icon {
+  background: #e4f8ef;
+  color: #078451;
+}
+
+.interviewer-dashboard .completed-overview .overview-icon {
+  background: #e8f2ff;
+  color: #2563eb;
+}
+
+/* ===== Section Headings ===== */
+.interviewer-dashboard .dashboard-section {
+  scroll-margin-top: 20px;
+}
+
+.interviewer-dashboard .section-heading {
+  margin-bottom: 22px;
+}
+
+.interviewer-dashboard .section-heading h2 {
+  margin-bottom: 7px;
+  color: #172033;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+}
+
+.interviewer-dashboard .section-heading > div > p {
+  margin-bottom: 0;
+}
+
+.interviewer-dashboard .section-count {
+  align-self: center;
+  padding: 8px 13px;
+  border: 1px solid #e3e7f0;
+  border-radius: 999px;
+  background: #fff;
+  color: #59657a;
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ===== Interview Cards ===== */
+.interviewer-dashboard .interview-card {
+  overflow: hidden;
+  padding: 23px;
+  border: 1px solid #e7eaf2;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 6px 24px rgba(30, 41, 59, 0.035);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.interviewer-dashboard .interview-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(30, 41, 59, 0.075);
+}
+
+.interviewer-dashboard .interview-card-header {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #edf0f5;
+}
+
+.interviewer-dashboard .card-label {
+  display: block;
+  margin-bottom: 9px;
+  color: #8b94a7;
+  font-size: 0.67rem;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+.interviewer-dashboard .interview-card-header h3 {
+  margin: 0;
+  color: #202a40;
+  font-size: 1.13rem;
+  font-weight: 750;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.interviewer-dashboard .status-badge {
+  flex-shrink: 0;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.interviewer-dashboard .status-pending {
+  background: #fff4d9;
+  color: #986000;
+}
+
+.interviewer-dashboard .status-scheduled {
+  background: #e4f8ef;
+  color: #08784c;
+}
+
+.interviewer-dashboard .status-completed {
+  background: #e8efff;
+  color: #3457bb;
+}
+
+/* ===== Student Details ===== */
+.interviewer-dashboard .student-details {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 0 16px;
+}
+
+.interviewer-dashboard .detail-icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: 50%;
+  background: #eeedff;
+  color: #4f46e5;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.interviewer-dashboard .student-details span,
+.interviewer-dashboard .detail-row > span,
+.interviewer-dashboard .notes-box > span,
+.interviewer-dashboard .scheduled-time-box > span,
+.interviewer-dashboard .completed-time-box > span {
+  display: block;
+  margin-bottom: 5px;
+  color: #8992a5;
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.interviewer-dashboard .student-details p,
+.interviewer-dashboard .detail-row p {
+  margin-bottom: 0;
+  color: #303b51;
+  font-size: 0.9rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.interviewer-dashboard .detail-row {
+  padding: 0 0 17px;
+}
+
+.interviewer-dashboard .notes-box,
+.interviewer-dashboard .scheduled-time-box,
+.interviewer-dashboard .completed-time-box {
+  margin-bottom: 18px;
+  padding: 14px;
+  border-radius: 12px;
+  background: #f7f8fc;
+}
+
+.interviewer-dashboard .notes-box p,
+.interviewer-dashboard .scheduled-time-box p,
+.interviewer-dashboard .completed-time-box p {
+  margin: 0;
+  color: #465168;
+  font-size: 0.87rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.interviewer-dashboard .schedule-box {
+  padding-top: 19px;
+  border-top: 1px solid #edf0f5;
+}
+
+.interviewer-dashboard .schedule-box .form-label {
+  margin-bottom: 9px;
+  color: #303b51;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.interviewer-dashboard .schedule-input {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid #dfe4ee;
+  border-radius: 10px;
+  color: #303b51;
+  font-size: 0.88rem;
+}
+
+.interviewer-dashboard .schedule-input:focus {
+  border-color: #818cf8;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+}
+
+.interviewer-dashboard .schedule-btn,
+.interviewer-dashboard .join-interview-btn {
+  min-height: 45px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.interviewer-dashboard .schedule-btn {
+  border: none;
+  background: #4f46e5;
+}
+
+.interviewer-dashboard .join-interview-btn {
+  border: none;
+  background: #078451;
+}
+
+.interviewer-dashboard .join-interview-btn:hover {
+  background: #066b42;
+}
+
+/* ===== Empty and Loading States ===== */
+.interviewer-dashboard .dashboard-empty {
+  padding: 42px 20px;
+  border: 1px dashed #d8deea;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.7);
+  text-align: center;
+}
+
+.interviewer-dashboard .empty-icon {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 15px;
+  place-items: center;
+  border-radius: 16px;
+  background: #eeedff;
+  color: #4f46e5;
+  font-size: 1.8rem;
+}
+
+.interviewer-dashboard .dashboard-empty h3 {
+  color: #263149;
+  font-size: 1.05rem;
+  font-weight: 750;
+}
+
+.interviewer-dashboard .dashboard-empty p {
+  margin-bottom: 0;
+  color: #7b8599;
+  font-size: 0.88rem;
+}
+
+.interviewer-dashboard .dashboard-footer {
+  padding: 22px 10px 5px;
+  border-top: 1px solid #e5e9f1;
+  color: #929bad;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+/* ===== Tablet and Mobile ===== */
+@media (max-width: 767.98px) {
+  .interviewer-dashboard {
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+  }
+
+  .interviewer-dashboard .dashboard-title {
+    letter-spacing: -0.6px;
+  }
+
+  .interviewer-dashboard .refresh-btn {
+    width: 100%;
+  }
+
+  .interviewer-dashboard .overview-card {
+    padding: 18px;
+    border-radius: 15px;
+  }
+
+  .interviewer-dashboard .overview-icon {
+    width: 38px;
+    height: 38px;
+    margin-bottom: 13px;
+  }
+
+  .interviewer-dashboard .overview-card h2 {
+    font-size: 1.7rem;
+  }
+
+  .interviewer-dashboard .section-heading h2 {
+    font-size: 1.25rem;
+  }
+
+  .interviewer-dashboard .section-count {
+    align-self: flex-start;
+  }
+
+  .interviewer-dashboard .interview-card {
+    padding: 18px;
+    border-radius: 15px;
+  }
+
+  .interviewer-dashboard .interview-card:hover {
+    transform: none;
+  }
+
+  .interviewer-dashboard .interview-card-header h3 {
+    font-size: 1rem;
+  }
+
+  .interviewer-dashboard .status-badge {
+    padding: 5px 7px;
+    font-size: 0.65rem;
+  }
+
+  .interviewer-dashboard .dashboard-empty {
+    padding: 32px 15px;
+  }
+}
+
+@media (max-width: 380px) {
+  .interviewer-dashboard .interview-card-header {
+    flex-wrap: wrap;
+  }
+
+  .interviewer-dashboard .dashboard-title {
+    font-size: 1.6rem;
+  }
+}
