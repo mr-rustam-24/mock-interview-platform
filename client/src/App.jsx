@@ -6,7 +6,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-
+import ProtectedRoute from "./pages/ProtectedRoutes";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
@@ -22,12 +22,13 @@ function App() {
 
         <Route
           path="/student-dashboard"
-          element={<StudentDashboard />}
+
+          element= {<ProtectedRoute> {<StudentDashboard />}</ProtectedRoute>}
         />
 
         <Route
           path="/interviewer-dashboard"
-          element={<InterviewerDashboard />}
+          element={ <ProtectedRoute>  <InterviewerDashboard /></ProtectedRoute>}
         />
 
         <Route

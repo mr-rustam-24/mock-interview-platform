@@ -4,6 +4,13 @@ const { randomUUID } = require("crypto");
 
 const interviewSchema = new mongoose.Schema(
   {
+
+    student: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+    
     studentName: {
       type: String,
       required: true,

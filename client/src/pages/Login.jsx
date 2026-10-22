@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "../../css/Login.css"
+import "../../css/Login.css";
 import api from "../../api/Axios";
 
 function Login() {
@@ -18,11 +18,14 @@ function Login() {
         password,
       });
 
+      const token = response.data.token;
+
+      localStorage.setItem("token", token);
+
       alert("Login Successful");
 
-      localStorage.setItem("token", response.data.token);
-
-      navigate("/contest");
+      navigate("/student-dashboard");
+      
     } catch (error) {
       alert("Invalid Email or Password");
       console.log(error);

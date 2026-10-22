@@ -14,11 +14,14 @@ exports.createInterview = async (req, res) => {
     }
 
     const interview = await Interview.create({
+      student: req.user.id,
       studentName,
       studentEmail,
       topic,
       notes: notes || "",
     });
+
+    console.log("CREATED INTERVIEW:", interview);
 
     return res.status(201).json({
       success: true,
@@ -113,18 +116,13 @@ exports.scheduleInterview = async (req, res) => {
 // Get interviews belonging to a student by email.
 exports.getStudentInterviews = async (req, res) => {
   try {
-    const { email } = req.query;
-
-    if (!email || !email.trim()) {
-      return res.status(400).json({
-        success: false,
-        message: "Student email is required.",
-      });
-    }
+    console.log("STUDENT USER:", req.user);
 
     const interviews = await Interview.find({
-      studentEmail: email.trim().toLowerCase(),
+      student: req.user.id,
     }).sort({ createdAt: -1 });
+
+    console.log("STUDENT INTERVIEWS:", interviews);
 
     return res.status(200).json({
       success: true,
@@ -133,6 +131,7 @@ exports.getStudentInterviews = async (req, res) => {
     });
   } catch (error) {
     console.error("Get student interviews error:", error);
+
     return res.status(500).json({
       success: false,
       message: "Failed to fetch student interviews.",

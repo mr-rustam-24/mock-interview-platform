@@ -1,5 +1,6 @@
 
 const express = require("express");
+const authMiddleware = require("../middleware/auth.middleware");
 const {
   createInterview,
   getPendingInterviews,
@@ -12,12 +13,12 @@ const {
 
 const router = express.Router();
 
-router.post("/", createInterview);
-router.get("/pending", getPendingInterviews);
-router.get("/student", getStudentInterviews);
-router.get("/scheduled", getScheduledInterviews);
-router.patch("/:id/schedule", scheduleInterview);
-router.patch("/:id/end", endInterview);
-router.get("/completed", getCompletedInterviews);
+router.post("/", authMiddleware,createInterview);
+router.get("/pending", authMiddleware,getPendingInterviews);
+router.get("/student", authMiddleware,getStudentInterviews);
+router.get("/scheduled", authMiddleware,getScheduledInterviews);
+router.patch("/:id/schedule", authMiddleware,scheduleInterview);
+router.patch("/:id/end", authMiddleware,endInterview);
+router.get("/completed",authMiddleware, getCompletedInterviews);
 
 module.exports = router;
