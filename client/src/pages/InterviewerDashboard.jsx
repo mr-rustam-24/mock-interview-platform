@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 import "../../css/InterviewerDashboard.css";
 
 
-const API_URL = "https://mock-interview-platform-api.onrender.com/api/interviews/pending";
-const SCHEDULED_API_URL = "https://mock-interview-platform-api.onrender.com/api/interviews";
 const BASE_URL = "https://mock-interview-platform-api.onrender.com/api/interviews";
 
 
@@ -24,11 +22,28 @@ function InterviewerDashboard() {
     setError("");
 
     try {
-     
+        const token = localStorage.getItem("token");
 
-      const pendingData = await pendingResponse.json();
-      const scheduledData = await scheduledResponse.json();
-      const completedData = await completedResponse.json();
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
+
+  const [pendingResponse, scheduledResponse, completedResponse] =
+    await Promise.all([
+      fetch(`${BASE_URL}/pending`, {
+        headers,
+      }),
+      fetch(`${BASE_URL}/scheduled`, {
+        headers,
+      }),
+      fetch(`${BASE_URL}/completed`, {
+        headers,
+      }),
+    ]);
+
+  const pendingData = await pendingResponse.json();
+  const scheduledData = await scheduledResponse.json();
+  const completedData = await completedResponse.json();
 
       if (!pendingResponse.ok) {
         throw new Error(
@@ -81,11 +96,14 @@ function InterviewerDashboard() {
     setMessage("");
 
     try {
-      const response = await fetch(`${BASE_URL}/${interviewId}/schedule`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
+     const token = localStorage.getItem("token");
+
+const response = await fetch(`${BASE_URL}/${interviewId}/schedule`, {
+  method: "PATCH",
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`,
+  },
         body: JSON.stringify({
           scheduledAt: scheduledAt.toISOString(),
         }),
