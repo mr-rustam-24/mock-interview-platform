@@ -2,7 +2,8 @@
 import { useEffect, useRef, useState } from "react";
 import { io } from "socket.io-client";
 import "../../css/VideoCall.css";
-
+const API_URL =
+  "https://mock-interview-platform-api.onrender.com/api/interviews";
 const SERVER_URL = "https://mock-interview-platform-api.onrender.com";
 const socket = io(SERVER_URL);
 
@@ -311,10 +312,14 @@ export default function VideoCall() {
     setStatus("Ending interview...");
 
     try {
-      const response = await fetch(
-        `${SERVER_URL}/api/interviews/${interviewId}/end`,
-        { method: "PATCH" }
-      );
+      const token = localStorage.getItem("token");
+
+const response = await fetch(`${API_URL}/${interviewId}/end`, {
+  method: "PATCH",
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+});
 
       const data = await response.json();
 
