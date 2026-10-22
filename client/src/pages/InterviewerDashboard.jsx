@@ -24,15 +24,7 @@ function InterviewerDashboard() {
     setError("");
 
     try {
-      const [
-        pendingResponse,
-        scheduledResponse,
-        completedResponse,
-      ] = await Promise.all([
-        fetch(API_URL),
-        fetch(`${SCHEDULED_API_URL}/scheduled`),
-        fetch(`${SCHEDULED_API_URL}/completed`),
-      ]);
+     
 
       const pendingData = await pendingResponse.json();
       const scheduledData = await scheduledResponse.json();
